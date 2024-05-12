@@ -3,20 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 
-
+/* Il componente Square (quadrato) visualizza un singolo <button>  */
 class Square extends React.Component {
 render() {
     return (
-    <button className="square">
-        {/* TODO */}
+        /* stiamo passando una funzione come prop onClick */
+    <button className="square" onClick={() => console.log('click')}>
+        {this.props.value}
     </button>
     );
 }
 }
 
+
+/* Board (tavola) 9 quadrati. */
 class Board extends React.Component {
 renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
 }
 
 render() {
@@ -45,6 +48,9 @@ render() {
 }
 }
 
+
+
+/* Il componente Game (partita) visualizza una tavola con valori segnaposto */
 class Game extends React.Component {
 render() {
     return (
